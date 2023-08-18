@@ -17,10 +17,15 @@ public class Task7PrimeNumbers {
         boolean[] resheto = new boolean[N+1];
 
         for (int i=2;i<Math.sqrt(resheto.length);i++){
-            for (int j=i*i;j<N+1; j++){
-            if (j % i == 0){
-                resheto[j] = true;
-            }
+            for (int j=0;j<N+1; j++){
+                int perem = i*(i + j);
+                if (perem > N+1){
+                    break;
+                }
+                resheto[perem] = true;
+//                if (j % i == 0){
+//                resheto[j] = true;
+//            }
         }
         }
 
