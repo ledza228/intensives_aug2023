@@ -2,6 +2,7 @@
 
 package ru.yandex.tasks;
 
+import javax.annotation.processing.SupportedSourceVersion;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,7 +13,31 @@ public class Task3InsertionSort {
          * Выход: отсортированный (сортировкой вставками!) numbers
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+
+        for (int i=0;i<numbers.size();i++){
+
+            int current = numbers.get(i);
+
+            boolean isFounded = false;
+
+            for (int j=0; j<i; j++){
+                //found place
+                if (current < numbers.get(j)){
+                    isFounded = true;
+                    int temp = numbers.get(j);
+                    numbers.set(j, current);
+                    for (int k=j+1;k<=i; k++){
+                        int temp2 = numbers.get(k);
+                        numbers.set(k, temp);
+                        temp = temp2;
+                    }
+                    break;
+                }
+            }
+        }
+
+
+        return numbers;
     }
 
     public static void selfCheck() {
