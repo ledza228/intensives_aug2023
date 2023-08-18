@@ -2,7 +2,8 @@
 
 package ru.yandex.tasks;
 
-import java.util.Arrays;
+import java.net.StandardSocketOptions;
+import java.util.*;
 
 public class Task5BFS {
     public static void runSearch() {
@@ -20,7 +21,23 @@ public class Task5BFS {
          * root - корень, откуда нужно начинать обход
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+
+        List<Integer> res = new ArrayList<>();
+        Queue<Integer> stack = new ArrayDeque<>();
+
+        stack.add(root);
+        while (stack.size() != 0) {
+            int current = stack.poll();
+            if (tree[current][0] != -1) {
+                stack.add(tree[current][0]);
+            }
+            if (tree[current][1] != -1) {
+                stack.add(tree[current][1]);
+            }
+            res.add(current);
+        }
+
+        return res.stream().mapToInt(i -> i).toArray();
     }
 
     public static void selfCheck() {
