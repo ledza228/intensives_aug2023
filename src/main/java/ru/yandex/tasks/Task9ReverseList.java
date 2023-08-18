@@ -10,7 +10,18 @@ public class Task9ReverseList {
          * Выход: новая голова списка
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+
+        Node current = head;
+        Node prev = null;
+        while (current != null){
+            Node next = current.next;
+            current.next = prev;
+            prev = current;
+
+            current = next;
+        }
+
+        return prev;
     }
 
     public static void selfCheck() {
@@ -40,4 +51,9 @@ public class Task9ReverseList {
         out3 = out3.next;
         assert (out3 == a3 && out3.value == 4 && out3.next == null);
     }
+
+    public static void main(String[] args) {
+        selfCheck();
+    }
+
 }
