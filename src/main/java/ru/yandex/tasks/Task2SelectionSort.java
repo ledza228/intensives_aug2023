@@ -12,7 +12,20 @@ public class Task2SelectionSort {
          * Выход: отсортированный (сортировкой выбором!) numbers
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+
+        for (int i=0;i<numbers.size()-1;i++){
+            int minIdx = i;
+            for (int j=i;j<numbers.size();j++){
+                if (numbers.get(j) < numbers.get(minIdx)){
+                    minIdx = j;
+                }
+            }
+            int temp = numbers.get(i);
+            numbers.set(i,numbers.get(minIdx));
+            numbers.set(minIdx, temp);
+        }
+
+        return numbers;
     }
 
     public static void selfCheck() {
