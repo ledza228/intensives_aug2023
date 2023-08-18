@@ -12,7 +12,23 @@ public class Task1BubbleSort {
          * Выход: отсортированный (сортировкой пузырьком!) numbers
          */
         // (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ WRITE CODE HERE (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-        return null;
+
+        for (int i = numbers.size(); i>= 0; i--){
+            int counter = 0;
+            for (int j = 0; j<i-1; j++){
+                if (numbers.get(j) > numbers.get(j + 1)){
+                    counter++;
+                    int temp =  numbers.get(j);
+                    numbers.set(j, numbers.get(j+1));
+                    numbers.set(j+1, temp);
+                }
+            }
+            if (counter == 0){
+                break;
+            }
+        }
+
+        return numbers;
     }
 
     public static void selfCheck() {
